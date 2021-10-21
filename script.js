@@ -53,17 +53,32 @@ const deck = [
   { name: "Spades", value: 14, image: "/image/ace_of_spades.png" },
 ];
 
-function randomChoice() {
-   let array = deck;
-    const output = array[Math.floor(Math.random() * array.length)];
-    return output;
+let points = 0;
+let chances = 2;
+let cardsCounter;
+
+let buttons = document.querySelectorAll(".play .button button");
+for (let btn of buttons) {
+  btn.addEventListener("click", () => {
+    const object = deck[Math.floor(Math.random() * deck.length)];
+
+    deck.pop(object);
+    cardsCounter = deck.length + 1;
+    document.querySelector(".display img").src = `${object.image}`;
+    document.querySelector(
+      ".infoDiv .name"
+    ).innerHTML = `<span>Name:</span>  ${object.name}`;
+    document.querySelector(
+      ".infoDiv .value"
+    ).innerHTML = `<span>Value:</span>  ${object.value}`;
+    document.querySelector(
+      ".card-to-turn p"
+    ).innerHTML = `<span>${cardsCounter}</span> cards left. `;
+    if (cardsCounter < 2) {
+      document.querySelector(
+        ".play p"
+      ).innerHTML = `<span>No enough cards left to play, click on the play button to play again!</span>`;
+    }
+  });
 }
-let object = randomChoice()
-  
-document.querySelector('.display img').src = `${object.image}`;
-document.querySelector('.infoDiv .name').innerHTML = `<span>Name:</span>  ${object.name}`;
-document.querySelector('.infoDiv .value').innerHTML = `<span>Value:</span>  ${object.value}`
-
-
-//let test = document.querySelector('.display img').src = `${dis()}`
 
