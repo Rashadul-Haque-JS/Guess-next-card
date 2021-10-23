@@ -56,9 +56,12 @@ const deck = [
 let points = 0;
 let chances = 2;
 let cardsCounter;
+let storeArray = [];
+let currentValue;
+let previousValue;
 
 let buttons = document.querySelectorAll(".play .button button");
-for (let btn of buttons) {
+buttons.forEach((btn) =>
   btn.addEventListener("click", () => {
     const object = deck[Math.floor(Math.random() * deck.length)];
 
@@ -79,6 +82,59 @@ for (let btn of buttons) {
         ".play p"
       ).innerHTML = `<span>No enough cards left to play, click on the play button to play again!</span>`;
     }
-  });
-}
+    storeArray.push(`${object.value}`);
+    
+    currentValue = storeArray[storeArray.length - 1];
+    previousValue = storeArray[storeArray.length - 2];
+    console.log("c " + currentValue);
+    console.log("p " + previousValue);
+   
+    document.querySelector(".button .btn1").addEventListener("click", () => {
+      if (currentValue < previousValue) {
+        document.querySelector(
+          ".info p:nth-of-type(3)"
+        ).innerHTML = `<span>Current status:</span>Right guess!`;
+        document.querySelector(
+          ".info p:nth-of-type(1)"
+        ).innerText = `Points : ${points++}`;
+      } else {
+        document.querySelector(
+          ".info p:nth-of-type(3)"
+        ).innerHTML = `<span>Current status:</span>Not lower!`;
+        points = points;
+      }
+    });
 
+    document.querySelector(".button .btn2").addEventListener("click", () => {
+      if (currentValue > previousValue) {
+        document.querySelector(
+          ".info p:nth-of-type(3)"
+        ).innerHTML = `<span>Current status:</span>Right guess!`;
+        document.querySelector(
+          ".info p:nth-of-type(1)"
+        ).innerText = `Points : ${points++}`;
+      } else {
+        document.querySelector(
+          ".info p:nth-of-type(3)"
+        ).innerHTML = `<span>Current status:</span>Not higher!`;
+        points = points;
+      }
+    });
+
+    document.querySelector(".button .btn3").addEventListener("click", () => {
+      if (currentValue == previousValue) {
+        document.querySelector(
+          ".info p:nth-of-type(3)"
+        ).innerHTML = `<span>Current status:</span>Right guess!`;
+        document.querySelector(
+          ".info p:nth-of-type(1)"
+        ).innerText = `Points : ${points++}`;
+      } else {
+        document.querySelector(
+          ".info p:nth-of-type(3)"
+        ).innerHTML = `<span>Current status:</span>Not the same!`;
+        points = points;
+      }
+    });
+  })
+);
