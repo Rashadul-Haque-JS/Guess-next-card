@@ -54,7 +54,7 @@ const deck = [
 ];
 
 let points = 0;
-let chances = 2;
+let chances = 5;
 let cardsCounter;
 let storeArray = [];
 let currentValue;
@@ -92,15 +92,16 @@ buttons.forEach((btn) =>
 document.querySelector(".button .btn1").addEventListener("click", () => {
   if (currentValue < previousValue) {
     document.querySelector(
-      ".info p:nth-of-type(3)"
-    ).innerHTML = `<span>Current status:</span>Right guess!`;
+      ".info li:nth-of-type(3)"
+    ).innerHTML = `Current status: Right guess!`;
+    points++
     document.querySelector(
-      ".info p:nth-of-type(1)"
-    ).innerText = `Points : ${points++}`;
+      ".info li:nth-of-type(1)"
+    ).innerText = `Points : ${points}`;
   } else {
     document.querySelector(
-      ".info p:nth-of-type(3)"
-    ).innerHTML = `<span>Current status:</span>Not lower!`;
+      ".info li:nth-of-type(3)"
+    ).innerHTML = `Current status: Not lower!`;
     points = points;
   }
 });
@@ -108,15 +109,16 @@ document.querySelector(".button .btn1").addEventListener("click", () => {
 document.querySelector(".button .btn2").addEventListener("click", () => {
   if (currentValue > previousValue) {
     document.querySelector(
-      ".info p:nth-of-type(3)"
-    ).innerHTML = `<span>Current status:</span>Right guess!`;
+      ".info li:nth-of-type(3)"
+    ).innerHTML = `Current status: Right guess!`;
+    points++
     document.querySelector(
-      ".info p:nth-of-type(1)"
-    ).innerText = `Points : ${points++}`;
+      ".info li:nth-of-type(1)"
+    ).innerText = `Points : ${points}`;
   } else {
     document.querySelector(
-      ".info p:nth-of-type(3)"
-    ).innerHTML = `<span>Current status:</span>Not higher!`;
+      ".info li:nth-of-type(3)"
+    ).innerHTML = `Current status: Not higher!`;
     points = points;
   }
 });
@@ -124,15 +126,16 @@ document.querySelector(".button .btn2").addEventListener("click", () => {
 document.querySelector(".button .btn3").addEventListener("click", () => {
   if (currentValue == previousValue) {
     document.querySelector(
-      ".info p:nth-of-type(3)"
-    ).innerHTML = `<span>Current status:</span>Right guess!`;
+      ".info li:nth-of-type(3)"
+    ).innerHTML = `Current status: Right guess!`;
+    points++
     document.querySelector(
-      ".info p:nth-of-type(1)"
-    ).innerText = `Points : ${points++}`;
+      ".info li:nth-of-type(1)"
+    ).innerText = `Points : ${points}`;
   } else {
     document.querySelector(
-      ".info p:nth-of-type(3)"
-    ).innerHTML = `<span>Current status:</span>Not the same!`;
+      ".info li:nth-of-type(3)"
+    ).innerHTML = `Current status: Not the same!`;
     points = points;
   }
 });

@@ -41,17 +41,19 @@ body {
 .info {
   position: absolute;
   top: 30px;
-  left: 15px;
+  left: 35px;
   text-align:start;
 }
 
-.info p {
+.info li {
   margin-top: 15px;
   font-size: 1.1rem;
   color: #ffbf00;
+  list-style-type: square;
+  
 }
 
-.info p span{
+.info li span{
   color: #ffbf00;
 }
 
