@@ -84,8 +84,8 @@ buttons.forEach((btn) =>
     }
     storeArray.push(`${object.value}`);
 
-    currentValue = storeArray[storeArray.length - 1];
-    previousValue = storeArray[storeArray.length - 2];
+    currentValue = Number(storeArray[storeArray.length - 1]);
+    previousValue = Number(storeArray[storeArray.length - 2]);
   })
 );
 
