@@ -65,7 +65,6 @@ buttons.forEach((btn) =>
   btn.addEventListener("click", () => {
     const object = deck[Math.floor(Math.random() * deck.length)];
 
-    deck.pop(object);
     cardsCounter = deck.length + 1;
     document.querySelector(".display img").src = `${object.image}`;
     document.querySelector(
@@ -94,7 +93,7 @@ document.querySelector(".button .btn1").addEventListener("click", () => {
     document.querySelector(
       ".info li:nth-of-type(3)"
     ).innerHTML = `Current status: Right guess!`;
-    points++
+    points++;
     document.querySelector(
       ".info li:nth-of-type(1)"
     ).innerText = `Points : ${points}`;
@@ -111,7 +110,7 @@ document.querySelector(".button .btn2").addEventListener("click", () => {
     document.querySelector(
       ".info li:nth-of-type(3)"
     ).innerHTML = `Current status: Right guess!`;
-    points++
+    points++;
     document.querySelector(
       ".info li:nth-of-type(1)"
     ).innerText = `Points : ${points}`;
@@ -128,7 +127,7 @@ document.querySelector(".button .btn3").addEventListener("click", () => {
     document.querySelector(
       ".info li:nth-of-type(3)"
     ).innerHTML = `Current status: Right guess!`;
-    points++
+    points++;
     document.querySelector(
       ".info li:nth-of-type(1)"
     ).innerText = `Points : ${points}`;
