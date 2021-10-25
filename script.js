@@ -65,6 +65,7 @@ buttons.forEach((btn) =>
   btn.addEventListener("click", () => {
     const object = deck[Math.floor(Math.random() * deck.length)];
 
+    deck.pop(object)
     cardsCounter = deck.length + 1;
     document.querySelector(".display img").src = `${object.image}`;
     document.querySelector(
